@@ -2,7 +2,7 @@ package com.example.diceroller
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private fun rollDice() {
         val dice = Dice(6)
         val diceRoll = dice.roll()
-        val diceRoll2 = dice.roll()
+
 
         val luckyNumber = 4
         when(diceRoll){
@@ -38,10 +38,19 @@ class MainActivity : AppCompatActivity() {
             5 -> Toast.makeText(this, "Don't cry! You rolled a 5. Try again!", Toast.LENGTH_SHORT).show()
             6 ->Toast.makeText(this, "Apologies! You rolled a 6. Try again!", Toast.LENGTH_SHORT).show()
         }
-        val resultTextView: TextView = findViewById(R.id.textView)
-       // val resultTextView2: TextView = findViewById(R.id.textView2)
-        resultTextView.text = diceRoll.toString()
-        //resultTextView2.text = diceRoll2.toString()
+        //val resultTextView: TextView = findViewById(R.id.textView)
+        //resultTextView.text = diceRoll.toString()
+        val diceImage: ImageView = findViewById(R.id.imageView)
+        //diceImage.setImageResource(R.drawable.dice_2)
+
+        when(diceRoll){
+            1 -> diceImage.setImageResource(R.drawable.dice_1)
+            2-> diceImage.setImageResource(R.drawable.dice_2)
+            3 -> diceImage.setImageResource(R.drawable.dice_3)
+            4-> diceImage.setImageResource(R.drawable.dice_4)
+            5 -> diceImage.setImageResource(R.drawable.dice_5)
+            6-> diceImage.setImageResource(R.drawable.dice_6)
+        }
 
     }
 }
